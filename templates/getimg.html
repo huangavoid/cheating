@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing</title>
+	<link rel="stylesheet" href="{{ static_url('style.css') }}" />
+	<!--
+	<script src="{{ static_url('adapter.js')}}" type='text/javascript'></script>
+	<script src="{{ static_url('jquery.js') }}" type='text/javascript'></script>
+	-->
+</head>
+
+<body>
+	<h1>基于Web的在线考试监控技术研究</h1>
+	<p>采样时间大约为10s，为得到较好效果，请对准摄像头。</p>
+	<video id='live' width='320' height='240' autoplay style="display:inline;"></video>
+	<canvas id='draw' width='320' height='240' style="display:none;"></canvas>
+	<img id='target' style="display:none;" />
+	<script src="{{ static_url('main.js') }}" type='text/javascript'></script>
+	
+	<script type="text/javascript">
+		var i = 10;  
+		function remainTime(){  
+			if(i==0){  
+        		location.href="{{ next }}";  
+			}
+			i--;
+			setTimeout("remainTime()",1000);  
+		}  
+		remainTime();
+	</script>
+</body>
+</html>
